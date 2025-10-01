@@ -6,190 +6,176 @@
   <title>All Free Tools</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f4f6f9;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
       color: #333;
     }
     header {
       background: #007bff;
       color: white;
-      padding: 15px 20px;
-      text-align: center;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    nav {
-      background: #0056b3;
-      padding: 10px;
-      text-align: center;
+    header h1 {
+      margin: 0;
+      font-size: 22px;
     }
     nav a {
       color: white;
+      margin-left: 20px;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
     }
     nav a:hover {
       text-decoration: underline;
     }
     .container {
+      padding: 30px;
       max-width: 1100px;
       margin: auto;
-      padding: 20px;
     }
-    h1 {
+    h2 {
       text-align: center;
       margin-bottom: 20px;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
     .card {
       background: white;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s;
     }
     .card:hover {
       transform: translateY(-5px);
     }
     .card h3 {
-      margin-bottom: 10px;
-      color: #007bff;
+      margin-top: 10px;
+      font-size: 18px;
     }
     .card p {
+      color: #666;
       font-size: 14px;
-      margin-bottom: 15px;
     }
     .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
       background: #007bff;
       color: white;
-      padding: 10px 15px;
-      border: none;
       border-radius: 5px;
-      cursor: pointer;
       text-decoration: none;
-      display: inline-block;
     }
     .btn:hover {
       background: #0056b3;
     }
     footer {
-      background: #333;
-      color: white;
+      background: #222;
+      color: #aaa;
+      padding: 20px;
       text-align: center;
-      padding: 15px;
-      margin-top: 30px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h2>All Free Tools</h2>
+    <h1>All Free Tools</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#tools">Tools</a>
+      <a href="#faq">FAQ</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#tools">Tools</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact Us</a>
-    <a href="#privacy">Privacy Policy</a>
-  </nav>
-
-  <div class="container">
-    <h1>Welcome to All Free Tools</h1>
-    <p style="text-align:center;">Use our free online tools anytime, anywhere!</p>
-
-    <!-- Tools Section -->
-    <h2 id="tools" style="margin-top:40px; text-align:center;">Our Tools</h2>
+  <div class="container" id="tools">
+    <h2>Our Tools</h2>
     <div class="grid">
       <div class="card">
-        <h3>Age Calculator</h3>
-        <p>Calculate your age in years, months and days.</p>
-        <a href="#" class="btn">Use Tool</a>
+        <h3>🧮 Unit Converter</h3>
+        <p>Convert between different units easily.</p>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
       </div>
       <div class="card">
-        <h3>Password Generator</h3>
-        <p>Create strong and secure random passwords instantly.</p>
-        <a href="#" class="btn">Use Tool</a>
+        <h3>🎂 Age Calculator</h3>
+        <p>Find out your exact age in seconds.</p>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
       </div>
       <div class="card">
-        <h3>Unit Converter</h3>
-        <p>Convert units of length, weight, temperature and more.</p>
-        <a href="#" class="btn">Use Tool</a>
+        <h3>🔑 Password Generator</h3>
+        <p>Create strong random passwords instantly.</p>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
       </div>
       <div class="card">
-        <h3>Stopwatch / Timer</h3>
-        <p>Simple stopwatch and countdown timer online.</p>
-        <a href="#" class="btn">Use Tool</a>
+        <h3>⏱ Stopwatch / Timer</h3>
+        <p>Track time with stopwatch and timer functions.</p>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
       </div>
       <div class="card">
-        <h3>Image Compressor</h3>
+        <h3>📝 Word Counter</h3>
+        <p>Count words, characters, and paragraphs quickly.</p>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
+      </div>
+      <div class="card">
+        <h3>📦 Image Compressor</h3>
         <p>Reduce image file size without losing quality.</p>
-        <a href="#" class="btn">Use Tool</a>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
       </div>
       <div class="card">
-        <h3>Word Counter</h3>
-        <p>Count words, characters, sentences and paragraphs.</p>
-        <a href="#" class="btn">Use Tool</a>
+        <h3>📲 QR Code Generator</h3>
+        <p>Create free QR codes for any text or URL.</p>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
       </div>
       <div class="card">
-        <h3>QR Code Generator</h3>
-        <p>Create QR codes for links, text and contact info.</p>
-        <a href="#" class="btn">Use Tool</a>
+        <h3>🔤 Text Case Converter</h3>
+        <p>Convert text to upper, lower, or title case.</p>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
       </div>
       <div class="card">
-        <h3>Text Case Converter</h3>
-        <p>Convert text to uppercase, lowercase, or title case.</p>
-        <a href="#" class="btn">Use Tool</a>
+        <h3>🎨 Color Picker</h3>
+        <p>Pick and copy HEX, RGB, and HSL colors.</p>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
       </div>
       <div class="card">
-        <h3>YouTube Thumbnail Downloader</h3>
-        <p>Download high-quality thumbnails from YouTube videos.</p>
-        <a href="#" class="btn">Use Tool</a>
-      </div>
-      <div class="card">
-        <h3>Color Picker</h3>
-        <p>Pick colors and get HEX, RGB, HSL values easily.</p>
-        <a href="#" class="btn">Use Tool</a>
+        <h3>📥 YouTube Thumbnail Downloader</h3>
+        <p>Download any YouTube video thumbnail in HD.</p>
+        <a href="coming-soon.html" class="btn">Use Tool</a>
       </div>
     </div>
+  </div>
 
-    <!-- FAQ Section -->
-    <h2 id="faq" style="margin-top:50px; text-align:center;">Frequently Asked Questions</h2>
-    <div>
-      <p><b>Q1:</b> Are all tools free?<br><b>A:</b> Yes, all tools are 100% free to use.</p>
-      <p><b>Q2:</b> Do I need to register?<br><b>A:</b> No registration is required.</p>
-      <p><b>Q3:</b> Can I use tools on mobile?<br><b>A:</b> Yes, the site is fully responsive.</p>
-      <p><b>Q4:</b> Will my data be saved?<br><b>A:</b> No, all tools run in your browser.</p>
-    </div>
+  <div class="container" id="faq">
+    <h2>FAQ</h2>
+    <p><b>Q:</b> Are these tools free?<br><b>A:</b> Yes, all tools are completely free to use.</p>
+    <p><b>Q:</b> Do I need to install anything?<br><b>A:</b> No, all tools work online directly.</p>
+    <p><b>Q:</b> Can I use them on mobile?<br><b>A:</b> Yes, the site is mobile-friendly.</p>
+    <p><b>Q:</b> Will you add more tools?<br><b>A:</b> Yes, we keep adding new tools regularly.</p>
+  </div>
 
-    <!-- Contact Section -->
-    <h2 id="contact" style="margin-top:50px; text-align:center;">Contact Us</h2>
-    <p style="text-align:center;">If you have any questions, email us at: 
-      <a href="mailto:ueditz614@gmail.com">ueditz614@gmail.com</a>
-    </p>
+  <div class="container" id="privacy">
+    <h2>Privacy Policy</h2>
+    <p>We respect your privacy. Our tools do not store or share your data. Some ads may be shown to support development. 
+    We never ask for personal details or files unless required for the tool's function.</p>
+  </div>
 
-    <!-- Privacy Policy -->
-    <h2 id="privacy" style="margin-top:50px; text-align:center;">Privacy Policy</h2>
-    <p>
-      We respect your privacy. None of your personal data is collected, stored, or shared. 
-      All tools run directly in your browser. Any data entered (such as text or images) 
-      is processed locally and never uploaded to our servers.  
-      <br><br>
-      We may use anonymous usage statistics to improve our website. By using our site, 
-      you agree to this policy. If you have concerns, contact us at the email above.
-    </p>
-
+  <div class="container" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or suggestions, feel free to email us:</p>
+    <p><b>Email:</b> ueditz614@gmail.com</p>
   </div>
 
   <footer>
-    <p>© 2025 All Free Tools | Built for everyone</p>
+    <p>© 2025 All Free Tools. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
