@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Unit Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    .converter {
+      background: white;
+      max-width: 450px;
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    select, input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+      background: #eef3ff;
+      padding: 12px;
+      border-radius: 6px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧮 Advanced Unit Converter</h1>
+
+  <div class="converter">
+    <select id="category" onchange="updateUnits()">
+      <option value="length">Length</option>
+      <option value="weight">Weight</option>
+      <option value="temperature">Temperature</option>
+      <option value="area">Area</option>
+      <option value="volume">Volume</option>
+    </select>
+
+    <input type="number" id="value" placeholder="Enter value">
+
+    <select id="fromUnit"></select>
+    <select id="toUnit"></select>
+
+    <button onclick="convert()">Convert</button>
+
+    <div class="result" id="result">Result will appear here</div>
+  </div>
+
+  <a href="index.html">← Back to Home</a>
+
+  <script>
+    const units = {
+      length: ["Meter", "Kilometer", "Centimeter", "Millimeter", "Mile", "Yard", "Foot", "Inch"],
+      weight: ["Kilogram", "Gram", "Milligram", "Pound", "Ounce"],
+      temperature: ["Celsius", "Fahrenheit", "Kelvin"],
+      area: ["Square Meter", "Square Kilometer", "Square Mile", "Square Yard", "Square Foot", "Square Inch", "Hectare", "Acre"],
+      volume: ["Liter", "Milliliter", "Cubic Meter", "Cubic Centimeter", "Cubic Inch", "Cubic Foot", "Gallon (US)", "Quart (US)", "Pint (US)"]
+    };
+
+    function updateUnits() {
+      let category = document.getElementById("category").value;
+      let fromUnit = document.getElementById("fromUnit");
+      let toUnit = document.getElementById("toUnit");
+
+      fromUnit.innerHTML = "";
+      toUnit.innerHTML = "";
+
+      units[category].forEach(unit => {
+        let option1 = document.createElement("option");
+        let option2 = document.createElement("option");
+        option1.value = option2.value = unit;
+        option1.text = option2.text = unit;
+        fromUnit.add(option1);
+        toUnit.add(option2);
+      });
+    }
+
+    function convert() {
+      let category = document.getElementById("category").value;
+      let value = parseFloat(document.getElementById("value").value);
+      let from = document.getElementById("fromUnit").value;
+      let to = document.getElementById("toUnit").value;
+      let result = "";
+
+      if (isNaN(value)) {
+        result = "⚠ Please enter a valid number.";
+      } else {
+        if (category === "length") {
+          const factors = { Meter: 1, Kilometer: 1000, Centimeter: 0.01, Millimeter: 0.001, Mile: 1609.34, Yard: 0.9144, Foot: 0.3048, Inch: 0.0254 };
+          result = (value * factors[from] / factors[to]).toFixed(4) + " " + to;
+        }
+        else if (category === "weight") {
+          const factors = { Kilogram: 1, Gram: 0.001, Milligram: 0.000001, Pound: 0.453592, Ounce: 0.0283495 };
+          result = (value * factors[from] / factors[to]).toFixed(4) + " " + to;
+        }
+        else if (category === "temperature") {
+          if (from === to) result = value + " " + to;
+          else if (from === "Celsius" && to === "Fahrenheit") result = ((value * 9/5) + 32).toFixed(2) + " °F";
+          else if (from === "Celsius" && to === "Kelvin") result = (value + 273.15).toFixed(2) + " K";
+          else if (from === "Fahrenheit" && to === "Celsius") result = ((value - 32) * 5/9).toFixed(2) + " °C";
+          else if (from === "Fahrenheit" && to === "Kelvin") result = ((value - 32) * 5/9 + 273.15).toFixed(2) + " K";
+          else if (from === "Kelvin" && to === "Celsius") result = (value - 273.15).toFixed(2) + " °C";
+          else if (from === "Kelvin" && to === "Fahrenheit") result = ((value - 273.15) * 9/5 + 32).toFixed(2) + " °F";
+        }
+        else if (category === "area") {
+          const factors = { 
+            "Square Meter": 1, 
+            "Square Kilometer": 1e6, 
+            "Square Mile": 2.59e6, 
+            "Square Yard": 0.836127, 
+            "Square Foot": 0.092903, 
+            "Square Inch": 0.00064516, 
+            "Hectare": 10000, 
+            "Acre": 4046.86 
+          };
+          result = (value * factors[from] / factors[to]).toFixed(4) + " " + to;
+        }
+        else if (category === "volume") {
+          const factors = { 
+            "Liter": 1, 
+            "Milliliter": 0.001, 
+            "Cubic Meter": 1000, 
+            "Cubic Centimeter": 0.001, 
+            "Cubic Inch": 0.016387, 
+            "Cubic Foot": 28.3168, 
+            "Gallon (US)": 3.78541, 
+            "Quart (US)": 0.946353, 
+            "Pint (US)": 0.473176 
+          };
+          result = (value * factors[from] / factors[to]).toFixed(4) + " " + to;
+        }
+      }
+      document.getElementById("result").innerText = result;
+    }
+
+    // Default load
+    updateUnits();
+  </script>
+</body>
+</html>
