@@ -5,40 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Color Picker Tool</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f4f7fa; text-align: center; padding: 30px; }
-    .box { width: 150px; height: 150px; margin: 20px auto; border: 2px solid #333; border-radius: 10px; }
-    .result { margin: 10px auto; padding: 10px; background: #fff; border-radius: 6px; width: 250px; position: relative; }
-    .copy-btn { position: absolute; right: 10px; top: 10px; font-size: 12px; padding: 3px 8px; background: #0077cc; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
-    button { margin-top: 15px; padding: 8px 15px; border: none; background: #0077cc; color: white; border-radius: 6px; cursor: pointer; }
-    button:hover { background: #005fa3; }
+    body { font-family: Arial, sans-serif; text-align: center; background: #f4f7fa; padding: 20px; }
+    .box { width: 150px; height: 150px; margin: 20px auto; border-radius: 10px; border: 2px solid #333; }
+    .result { margin: 10px auto; padding: 10px; width: 250px; background: #fff; border-radius: 6px; }
   </style>
 </head>
 <body>
   <h1>Color Picker Tool</h1>
-  
+
   <div class="box" id="colorBox"></div>
   <input type="color" id="colorInput" value="#0077cc">
-  <br>
   <button onclick="generateColor()">Generate</button>
 
-  <div class="result">
-    <b>HEX:</b> <span id="hexValue">#0077cc</span>
-    <button class="copy-btn" onclick="copyText('hexValue')">Copy</button>
-  </div>
-  <div class="result">
-    <b>RGB:</b> <span id="rgbValue">rgb(0, 119, 204)</span>
-    <button class="copy-btn" onclick="copyText('rgbValue')">Copy</button>
-  </div>
-  <div class="result">
-    <b>HSL:</b> <span id="hslValue">hsl(204, 100%, 40%)</span>
-    <button class="copy-btn" onclick="copyText('hslValue')">Copy</button>
-  </div>
+  <div class="result"><b>HEX:</b> <span id="hexValue">#0077cc</span></div>
+  <div class="result"><b>RGB:</b> <span id="rgbValue">rgb(0, 119, 204)</span></div>
+  <div class="result"><b>HSL:</b> <span id="hslValue">hsl(204, 100%, 40%)</span></div>
 
   <script>
     const input = document.getElementById("colorInput");
     const box = document.getElementById("colorBox");
 
-    // Function to update values
     function updateColor(hex) {
       box.style.background = hex;
       document.getElementById("hexValue").innerText = hex;
@@ -70,25 +56,15 @@
       document.getElementById("hslValue").innerText = hsl(${h}, ${s}%, ${l}%);
     }
 
-    // Auto update jab color select ho
-    input.addEventListener("input", () => {
-      updateColor(input.value);
-    });
+    // Jab color input change ho
+    input.addEventListener("input", () => updateColor(input.value));
 
     // Generate button
     function generateColor() {
       updateColor(input.value);
     }
 
-    // Copy text
-    function copyText(id) {
-      let text = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copied: " + text);
-      });
-    }
-
-    // Initialize default
+    // Pehle se default color dikhado
     updateColor("#0077cc");
   </script>
 </body>
