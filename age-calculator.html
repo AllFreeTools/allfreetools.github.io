@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0077cc;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0077cc;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #0077cc;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Age Calculator</h1>
+  </header>
+
+  <div class="container">
+    <h2>Calculate Your Age</h2>
+    <label for="dob">Enter Your Date of Birth:</label>
+    <input type="date" id="dob">
+    <button onclick="calculateAge()">Calculate</button>
+    <div class="result" id="age-result"></div>
+  </div>
+
+  <script>
+    function calculateAge() {
+      let dob = document.getElementById("dob").value;
+      if (!dob) {
+        document.getElementById("age-result").innerText = "Please select your date of birth.";
+        return;
+      }
+
+      let birthDate = new Date(dob);
+      let today = new Date();
+
+      let ageInMs = today - birthDate;
+      let ageInSec = ageInMs / 1000;
+      let ageInMin = ageInSec / 60;
+      let ageInHours = ageInMin / 60;
+      let ageInDays = ageInHours / 24;
+      let ageInWeeks = ageInDays / 7;
+      let ageInMonths = ageInDays / 30.4375; 
+      let ageInYears = ageInDays / 365.25;
+
+      document.getElementById("age-result").innerHTML =
+        "You are " + Math.floor(ageInYears) + " years<br>" +
+        "or " + Math.floor(ageInMonths) + " months<br>" +
+        "or " + Math.floor(ageInWeeks) + " weeks<br>" +
+        "or " + Math.floor(ageInDays) + " days<br>" +
+        "or " + Math.floor(ageInHours) + " hours<br>" +
+        "or " + Math.floor(ageInMin) + " minutes<br>" +
+        "or " + Math.floor(ageInSec) + " seconds";
+    }
+  </script>
+</body>
+</html>
