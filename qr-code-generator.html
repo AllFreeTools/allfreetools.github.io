@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QR Code Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    header {
+      background: #0077cc;
+      color: #fff;
+      padding: 14px 18px;
+      text-align: center;
+    }
+    .container {
+      max-width: 720px;
+      margin: 28px auto;
+      background: #fff;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1 { color:#0077cc; margin: 6px 0 12px; text-align:center; }
+    label { display:block; margin-top:12px; font-weight:600; }
+    input[type="text"], textarea, select {
+      width:100%;
+      padding:10px 12px;
+      margin-top:6px;
+      border:1px solid #d0d7df;
+      border-radius:6px;
+      font-size:15px;
+      box-sizing:border-box;
+    }
+    textarea { min-height:80px; resize:vertical; }
+    .row { display:flex; gap:12px; margin-top:12px; flex-wrap:wrap; }
+    .row > * { flex:1 1 150px; }
+    .controls { text-align:center; margin-top:16px; }
+    .btn {
+      display:inline-block;
+      background:#0077cc;
+      color:#fff;
+      padding:10px 16px;
+      border-radius:6px;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .btn.secondary { background:#555; margin-left:8px; }
+    .preview {
+      margin-top:20px;
+      text-align:center;
+    }
+    .preview img {
+      max-width:260px;
+      width:100%;
+      border:8px solid #fff;
+      background:#fff;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      border-radius:8px;
+    }
+    .meta {
+      margin-top:10px;
+      color:#555;
+      font-size:14px;
+    }
+    .note { color:#666; font-size:13px; margin-top:10px; }
+    a.disabled { opacity:0.6; pointer-events:none; }
+    @media (max-width:520px) {
+      .row { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>QR Code Generator</h2>
+  </header>
+
+  <div class="container">
+    <h1>Create QR Codes</h1>
+
+    <label for="text">Text or URL</label>
+    <textarea id="text" placeholder="Enter URL or text (e.g. https://example.com)"></textarea>
+
+    <div class="row">
+      <div>
+        <label for="size">Size (px)</label>
+        <select id="size">
+          <option value="150">150 × 150</option>
+          <option value="200" selected>200 × 200</option>
+          <option value="300">300 × 300</option>
+          <option value="500">500 × 500</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="ecc">Error correction</label>
+        <select id="ecc">
+          <option value="L">Low (L)</option>
+          <option value="M" selected>Medium (M)</option>
+          <option value="Q">Quartile (Q)</option>
+          <option value="H">High (H)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" id="generateBtn">Generate QR</button>
+      <button class="btn secondary" id="copyBtn">Copy Text</button>
+    </div>
+
+    <div class="preview" id="previewArea" style="display:none;">
+      <h3>Generated QR</h3>
+      <img id="qrImage" alt="QR code">
+      <div class="meta" id="metaInfo"></div>
+      <div style="margin-top:10px;">
+        <a id="downloadLink" class="btn" download="qr-code.png">Download QR</a>
+        <a id="openLink" class="btn secondary" target="_blank">Open Image</a>
+      </div>
+    </div>
+
+    <p class="note">Tip: For URLs paste full address (https://...). If using a long text, choose larger size (300 or 500).</p>
+  </div>
+
+  <script>
+    // Uses Google Chart API for QR generation (simple and reliable).
+    // Build URL: https://chart.googleapis.com/chart?cht=qr&chs={size}x{size}&chl={encodedText}&chld={ecc}|0
+    const generateBtn = document.getElementById('generateBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const textEl = document.getElementById('text');
+    const sizeEl = document.getElementById('size');
+    const eccEl = document.getElementById('ecc');
+    const previewArea = document.getElementById('previewArea');
+    const qrImage = document.getElementById('qrImage');
+    const downloadLink = document.getElementById('downloadLink');
+    const openLink = document.getElementById('openLink');
+    const metaInfo = document.getElementById('metaInfo');
+
+    function buildQRUrl(text, size, ecc) {
+      const encoded = encodeURIComponent(text);
+      return https://chart.googleapis.com/chart?cht=qr&chs=${size}x${size}&chl=${encoded}&chld=${ecc}|0;
+    }
+
+    generateBtn.addEventListener('click', () => {
+      const text = textEl.value.trim();
+      if (!text) {
+        alert('Please enter text or URL to generate QR.');
+        textEl.focus();
+        return;
+      }
+      const size = sizeEl.value;
+      const ecc = eccEl.value;
+      const url = buildQRUrl(text, size, ecc);
+
+      // show preview
+      qrImage.src = url;
+      downloadLink.href = url;
+      openLink.href = url;
+      previewArea.style.display = 'block';
+
+      // meta info
+      metaInfo.innerText = Size: ${size} x ${size}   •   Error-correction: ${ecc};
+    });
+
+    copyBtn.addEventListener('click', () => {
+      const txt = textEl.value.trim();
+      if (!txt) {
+        alert('No text to copy.');
+        return;
+      }
+      navigator.clipboard.writeText(txt).then(() => {
+        alert('Text copied to clipboard.');
+      }).catch(() => {
+        alert('Unable to copy. Select and press Ctrl+C.');
+      });
+    });
+
+    // Allow download on click (some browsers will download remote image)
+    downloadLink.addEventListener('click', (e) => {
+      // For some browsers direct remote download works. For others, we convert to dataURL.
+      // Convert to canvas to ensure download with correct filename.
+      e.preventDefault();
+      fetch(downloadLink.href)
+        .then(res => res.blob())
+        .then(blob => {
+          const blobUrl = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          a.download = 'qr-code.png';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(blobUrl);
+        }).catch(() => {
+          // fallback: open image in new tab
+          window.open(downloadLink.href, '_blank');
+        });
+    });
+
+    // Quick generate on Enter when focus in textarea
+    textEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { // CTRL+Enter to generate
+        generateBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>
