@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch & Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0077cc;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .display {
+      font-size: 2em;
+      text-align: center;
+      margin: 20px 0;
+      color: #333;
+    }
+    button {
+      background: #0077cc;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    .btn-group {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+      width: 100px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stopwatch & Timer</h1>
+  </header>
+
+  <div class="container">
+    <!-- Stopwatch -->
+    <h2>Stopwatch</h2>
+    <div class="display" id="stopwatch">00:00:00</div>
+    <div class="btn-group">
+      <button onclick="startStopwatch()">Start</button>
+      <button onclick="stopStopwatch()">Stop</button>
+      <button onclick="resetStopwatch()">Reset</button>
+    </div>
+
+    <!-- Timer -->
+    <h2>Timer</h2>
+    <div style="text-align:center;">
+      <input type="number" id="minutes" placeholder="Minutes" min="0">
+      <input type="number" id="seconds" placeholder="Seconds" min="0" max="59">
+    </div>
+    <div class="display" id="timer">00:00</div>
+    <div class="btn-group">
+      <button onclick="startTimer()">Start</button>
+      <button onclick="pauseTimer()">Pause</button>
+      <button onclick="resetTimer()">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    // Stopwatch
+    let stopwatchInterval;
+    let stopwatchSeconds = 0;
+
+    function formatTime(sec) {
+      let hrs = Math.floor(sec / 3600);
+      let mins = Math.floor((sec % 3600) / 60);
+      let secs = sec % 60;
+      return (
+        String(hrs).padStart(2, "0") + ":" +
+        String(mins).padStart(2, "0") + ":" +
+        String(secs).padStart(2, "0")
+      );
+    }
+
+    function startStopwatch() {
+      if (!stopwatchInterval) {
+        stopwatchInterval = setInterval(() => {
+          stopwatchSeconds++;
+          document.getElementById("stopwatch").innerText = formatTime(stopwatchSeconds);
+        }, 1000);
+      }
+    }
+
+    function stopStopwatch() {
+      clearInterval(stopwatchInterval);
+      stopwatchInterval = null;
+    }
+
+    function resetStopwatch() {
+      stopStopwatch();
+      stopwatchSeconds = 0;
+      document.getElementById("stopwatch").innerText = "00:00:00";
+    }
+
+    // Timer
+    let timerInterval;
+    let remainingTime = 0;
+
+    function startTimer() {
+      if (timerInterval) return;
+
+      if (remainingTime === 0) {
+        let mins = parseInt(document.getElementById("minutes").value) || 0;
+        let secs = parseInt(document.getElementById("seconds").value) || 0;
+        remainingTime = mins * 60 + secs;
+      }
+
+      timerInterval = setInterval(() => {
+        if (remainingTime > 0) {
+          remainingTime--;
+          let mins = Math.floor(remainingTime / 60);
+          let secs = remainingTime % 60;
+          document.getElementById("timer").innerText =
+            String(mins).padStart(2, "0") + ":" + String(secs).padStart(2, "0");
+        } else {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          alert("Time's up!");
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      remainingTime = 0;
+      document.getElementById("timer").innerText = "00:00";
+      document.getElementById("minutes").value = "";
+      document.getElementById("seconds").value = "";
+    }
+  </script>
+</body>
+</html>
