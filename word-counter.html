@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0077cc;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0077cc;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+      margin-bottom: 20px;
+    }
+    .results {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Word Counter</h1>
+  </header>
+
+  <div class="container">
+    <h2>Type or Paste Your Text</h2>
+    <textarea id="textInput" placeholder="Start typing here..." oninput="countText()"></textarea>
+
+    <div class="results" id="results">
+      Words: 0 <br>
+      Characters (with spaces): 0 <br>
+      Characters (without spaces): 0 <br>
+      Sentences: 0 <br>
+      Paragraphs: 0
+    </div>
+  </div>
+
+  <script>
+    function countText() {
+      let text = document.getElementById("textInput").value;
+
+      // Words
+      let words = text.trim().split(/\s+/).filter(word => word.length > 0);
+
+      // Characters
+      let charWithSpaces = text.length;
+      let charWithoutSpaces = text.replace(/\s/g, "").length;
+
+      // Sentences (split by ., !, ?)
+      let sentences = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
+
+      // Paragraphs (split by line breaks)
+      let paragraphs = text.split(/\n+/).filter(p => p.trim().length > 0);
+
+      document.getElementById("results").innerHTML =
+        "Words: " + words.length + "<br>" +
+        "Characters (with spaces): " + charWithSpaces + "<br>" +
+        "Characters (without spaces): " + charWithoutSpaces + "<br>" +
+        "Sentences: " + sentences.length + "<br>" +
+        "Paragraphs: " + paragraphs.length;
+    }
+  </script>
+</body>
+</html>
