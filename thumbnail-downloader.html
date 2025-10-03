@@ -1,62 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouTube Thumbnail Downloader</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f4f7fa; margin: 0; padding: 0; }
-    .container { max-width: 700px; margin: 40px auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    h1 { text-align: center; color: #333; margin-bottom: 20px; }
-    p { text-align: center; margin-bottom: 20px; color: #555; }
-    input { width: 80%; padding: 10px; margin: 5px; border-radius: 6px; border: 1px solid #ccc; }
-    button { padding: 10px 20px; border: none; border-radius: 6px; background: #0077cc; color: #fff; cursor: pointer; }
-    button:hover { background: #005fa3; }
-    #result { margin-top: 20px; text-align: center; }
-    .thumb { margin-top: 15px; border: 2px solid #333; border-radius: 10px; max-width: 100%; }
-    .download-btn { display: inline-block; margin-top: 15px; padding: 10px 15px; background: green; color: white; border-radius: 6px; text-decoration: none; }
-    .download-btn:hover { background: darkgreen; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>🎥 YouTube Thumbnail Downloader</h1>
-    <p>Paste a YouTube link below to get its thumbnail in HD.</p>
-    
-    <div style="text-align:center;">
-      <input type="text" id="videoURL" placeholder="Enter YouTube video URL">
-      <button onclick="getThumbnail()">Generate</button>
-    </div>
+<script>
+function getThumbnail() {
+  const url = document.getElementById("videoURL").value.trim();
+  let videoId = "";
 
-    <div id="result"></div>
-  </div>
-
-  <script>
-    function getThumbnail() {
-      const url = document.getElementById("videoURL").value.trim();
-      let videoId = "";
-
-      // Extract YouTube video ID
-      if (url.includes("watch?v=")) {
-        videoId = url.split("watch?v=")[1].substring(0, 11);
-      } else if (url.includes("youtu.be/")) {
-        videoId = url.split("youtu.be/")[1].substring(0, 11);
-      }
-
-      if (videoId.length !== 11) {
-        document.getElementById("result").innerHTML = "<p style='color:red;'>⚠ Please enter a valid YouTube link</p>";
-        return;
-      }
-
-      const link = https://img.youtube.com/vi/${videoId}/maxresdefault.jpg;
-
-      document.getElementById("result").innerHTML = `
-        <h3>Thumbnail Preview:</h3>
-        <img src="${link}" class="thumb" alt="YouTube Thumbnail">
-        <br>
-        <a href="${link}" class="download-btn" download>⬇ Download Thumbnail</a>
-      `;
+  try {
+    // YouTube URL parse karne ka best method
+    let parsedUrl = new URL(url);
+    if (parsedUrl.hostname.includes("youtu.be")) {
+      videoId = parsedUrl.pathname.slice(1);
+    } else if (parsedUrl.hostname.includes("youtube.com")) {
+      videoId = parsedUrl.searchParams.get("v");
     }
-  </script>
-</body>
-</html>
+  } catch (e) {
+    document.getElementById("result").innerHTML = "<p style='color:red;'>⚠ Invalid URL</p>";
+    return;
+  }
+
+  if (!videoId) {
+    document.getElementById("result").innerHTML = "<p style='color:red;'>⚠ Please enter a valid YouTube link</p>";
+    return;
+  }
+
+  const link = https://img.youtube.com/vi/${videoId}/maxresdefault.jpg;
+
+  document.getElementById("result").innerHTML = `
+    <h3>Thumbnail Preview:</h3>
+    <img src="${link}" class="thumb" alt="YouTube Thumbnail">
+    <br>
+    <a href="${link}" class="download-btn" download>⬇ Download Thumbnail</a>
+  `;
+}
+</script>
