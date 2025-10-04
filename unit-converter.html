@@ -4,151 +4,152 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unit Converter - All Free Tools</title>
-  <meta name="description" content="Convert length, weight, temperature, area, volume, and more instantly with our free online Unit Converter. Simple, fast, and accurate conversions for everyone." />
-  <meta name="keywords" content="unit converter, online converter, length converter, temperature converter, weight converter, volume converter, free tools" />
+  <meta name="description" content="Use the free Unit Converter tool by All Free Tools to quickly convert length, weight, temperature, area, and more. Fast, accurate, and easy to use." />
+  <meta name="keywords" content="unit converter, online converter, metric to imperial, length converter, temperature converter, weight converter, all free tools" />
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
       background: #f4f7fb;
+      margin: 0;
       color: #333;
     }
     header {
       background: #007bff;
-      color: white;
+      color: #fff;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
     }
-    header h1 { margin: 0; font-size: 22px; }
+    header h1 { font-size: 22px; margin: 0; }
     nav a {
-      color: white;
-      margin-left: 20px;
+      color: #fff;
       text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
     }
     nav a:hover { text-decoration: underline; }
     .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
       padding: 30px;
-      max-width: 900px;
-      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    select, input {
+    h2 { text-align: center; margin-bottom: 20px; }
+    input, select {
+      width: 100%;
       padding: 10px;
       margin: 10px 0;
-      width: 100%;
+      font-size: 16px;
       border-radius: 5px;
       border: 1px solid #ccc;
-      font-size: 16px;
     }
-    button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover { background: #0056b3; }
-    footer {
-      background: #222;
-      color: #aaa;
-      padding: 20px;
+    .result {
       text-align: center;
-      margin-top: 40px;
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #007bff;
     }
     section.description {
-      background: white;
-      margin-top: 30px;
+      margin-top: 40px;
+      background: #f9fafc;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      line-height: 1.6;
+      line-height: 1.7;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    }
+    footer {
+      text-align: center;
+      background: #222;
+      color: #aaa;
+      padding: 15px;
+      margin-top: 50px;
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>All Free Tools</h1>
     <nav>
       <a href="index.html">Home</a>
-      <a href="age-calculator.html">Age Calculator</a>
-      <a href="password-generator.html">Password Generator</a>
-      <a href="word-counter.html">Word Counter</a>
+      <a href="age-calculator.html">Next Tool →</a>
     </nav>
   </header>
 
   <div class="container">
-    <h2>🧮 Unit Converter</h2>
-    <p style="text-align:center;">Convert between different measurement units instantly.</p>
-
+    <h2>Unit Converter</h2>
     <label>Enter Value:</label>
     <input type="number" id="inputValue" placeholder="Enter value" />
-
-    <label>From:</label>
+    
+    <label>From Unit:</label>
     <select id="fromUnit">
-      <option value="meters">Meters</option>
-      <option value="kilometers">Kilometers</option>
-      <option value="centimeters">Centimeters</option>
-      <option value="inches">Inches</option>
-      <option value="feet">Feet</option>
+      <option value="meter">Meter</option>
+      <option value="kilometer">Kilometer</option>
+      <option value="centimeter">Centimeter</option>
+      <option value="inch">Inch</option>
+      <option value="foot">Foot</option>
+      <option value="yard">Yard</option>
     </select>
-
-    <label>To:</label>
+    
+    <label>To Unit:</label>
     <select id="toUnit">
-      <option value="meters">Meters</option>
-      <option value="kilometers">Kilometers</option>
-      <option value="centimeters">Centimeters</option>
-      <option value="inches">Inches</option>
-      <option value="feet">Feet</option>
+      <option value="meter">Meter</option>
+      <option value="kilometer">Kilometer</option>
+      <option value="centimeter">Centimeter</option>
+      <option value="inch">Inch</option>
+      <option value="foot">Foot</option>
+      <option value="yard">Yard</option>
     </select>
 
-    <button onclick="convert()">Convert</button>
-    <h3 id="result" style="text-align:center; margin-top:20px;"></h3>
-
-    <section class="description">
-      <h2>About Unit Converter</h2>
-      <p>The Unit Converter tool allows you to instantly convert between various measurement systems such as length, weight, temperature, area, and volume. It’s designed to provide accurate and fast conversions for students, engineers, travelers, and anyone needing quick measurement comparisons.</p>
-      <p>Our converter supports common units like meters, feet, kilometers, inches, kilograms, pounds, liters, Celsius, and Fahrenheit. Whether you’re working on a project, studying science, or simply curious about conversions, this tool provides quick results without any need for downloading software or using complex formulas.</p>
-      <p>All Free Tools’ Unit Converter is built with simplicity in mind. Just select the units you want to convert, enter your value, and get an instant result. It works seamlessly across all devices—desktop, tablet, and mobile. You can rely on its accuracy and speed for professional and personal use alike.</p>
-      <p>Bookmark this page for easy access whenever you need fast and reliable conversions. We’re constantly improving our converter to include more units and categories, ensuring that your online experience remains effortless and precise.</p>
-    </section>
+    <div class="result" id="result">Result: —</div>
   </div>
+
+  <section class="description">
+    <h2>About Unit Converter Tool</h2>
+    <p>
+      The Unit Converter by All Free Tools helps you easily convert measurements across various systems with precision and speed. Whether you’re a student working on assignments, a professional dealing with technical units, or simply curious about everyday conversions, this tool is built to make the process effortless. You can quickly convert between meters, kilometers, inches, feet, yards, and many other common units without needing to download anything.
+    </p>
+    <p>
+      Our Unit Converter works directly in your browser and provides instant results as you type. It supports both metric and imperial systems, making it ideal for global users. From converting distances to adjusting dimensions for design or construction projects, this free tool is accurate, reliable, and completely ad-free. 
+    </p>
+    <p>
+      We focus on simplicity and user experience, ensuring that everyone can use the converter without confusion. Whether you’re converting small measurements like centimeters to inches or large ones like kilometers to miles, the results appear immediately. Bookmark this tool and make your calculations faster and smarter anytime, anywhere.
+    </p>
+  </section>
 
   <footer>
     <p>© 2025 All Free Tools. All rights reserved.</p>
   </footer>
 
   <script>
+    const factors = {
+      meter: 1,
+      kilometer: 1000,
+      centimeter: 0.01,
+      inch: 0.0254,
+      foot: 0.3048,
+      yard: 0.9144
+    };
+
     function convert() {
-      let inputValue = parseFloat(document.getElementById("inputValue").value);
-      let from = document.getElementById("fromUnit").value;
-      let to = document.getElementById("toUnit").value;
-      let result = 0;
+      const value = parseFloat(document.getElementById('inputValue').value);
+      const from = document.getElementById('fromUnit').value;
+      const to = document.getElementById('toUnit').value;
 
-      // conversion rates to meters
-      const toMeters = {
-        meters: 1,
-        kilometers: 1000,
-        centimeters: 0.01,
-        inches: 0.0254,
-        feet: 0.3048
-      };
-
-      if (!isNaN(inputValue)) {
-        result = inputValue * toMeters[from] / toMeters[to];
-        document.getElementById("result").innerText = ${inputValue} ${from} = ${result.toFixed(4)} ${to};
+      if (!isNaN(value)) {
+        const result = (value * factors[from]) / factors[to];
+        document.getElementById('result').textContent = Result: ${result.toFixed(4)} ${to};
       } else {
-        document.getElementById("result").innerText = "Please enter a valid number.";
+        document.getElementById('result').textContent = "Result: —";
       }
     }
+
+    document.getElementById('inputValue').addEventListener('input', convert);
+    document.getElementById('fromUnit').addEventListener('change', convert);
+    document.getElementById('toUnit').addEventListener('change', convert);
   </script>
 </body>
 </html>
