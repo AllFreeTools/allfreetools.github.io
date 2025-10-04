@@ -3,59 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All Free Tools - Free Online Utilities & Converters</title>
-
-  <!-- Primary SEO meta -->
-  <meta name="description" content="All Free Tools offers easy, free online utilities: Unit Converter, Age Calculator, Password Generator, Stopwatch & Timer, Word Counter, Image Compressor, QR Code Generator, and Text Case Converter. Simple, fast, and ad-supported." />
-  <meta name="keywords" content="free tools, online tools, unit converter, age calculator, password generator, QR code generator, image compressor, word counter, stopwatch, text case converter" />
-  <meta name="author" content="All Free Tools" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="All Free Tools - Free Online Utilities" />
-  <meta property="og:description" content="Access free online utilities like converters, calculators, and generators in one place. Simple, fast, and ad-supported." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://allfreetools.github.io" />
-  <meta property="og:image" content="https://allfreetools.github.io/preview.png" />
-
-  <link rel="canonical" href="https://allfreetools.github.io" />
-
+  <title>All Free Tools - Online Utility Tools for Everyone</title>
+  <meta name="description" content="All Free Tools offers free online utilities like Unit Converter, Age Calculator, Password Generator, Stopwatch Timer, Word Counter, Image Compressor, QR Code Generator, and Text Case Converter. Use all tools instantly without downloads." />
+  <meta name="keywords" content="free tools, online converter, age calculator, password generator, image compressor, qr code generator, word counter, text converter, stopwatch timer, all free tools" />
   <style>
-    /* --------- Basic layout and styles (kept simple & fast) --------- */
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       background: #f4f7fb;
       color: #333;
-      line-height: 1.6;
     }
     header {
       background: #007bff;
       color: white;
-      padding: 15px 24px;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
-    header h1 { margin: 0; font-size: 20px; }
-    nav { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
     nav a {
       color: white;
+      margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
-      margin-left: 6px;
-      font-size: 14px;
     }
     nav a:hover { text-decoration: underline; }
-    .container { max-width: 1100px; margin: 26px auto; padding: 0 18px; }
-    .hero {
-      background: white;
-      padding: 24px;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    .container {
+      padding: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
       margin-bottom: 20px;
     }
-    .hero h2 { color: #007bff; margin-top: 0; }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -63,454 +49,143 @@
     }
     .card {
       background: white;
-      padding: 18px;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform .18s ease;
+      transition: transform 0.2s;
     }
-    .card:hover { transform: translateY(-6px); }
-    .card h3 { margin: 10px 0; color: #333; font-size: 18px; }
-    .card p { color: #666; font-size: 14px; margin: 0 0 12px; }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { margin-top: 10px; font-size: 18px; }
+    .card p { color: #666; font-size: 14px; }
     .btn {
       display: inline-block;
-      padding: 10px 16px;
+      margin-top: 15px;
+      padding: 10px 20px;
       background: #007bff;
       color: white;
-      border-radius: 6px;
+      border-radius: 5px;
       text-decoration: none;
-      font-weight: bold;
     }
     .btn:hover { background: #0056b3; }
-    h2.section-title { text-align: center; margin-top: 36px; color: #007bff; }
-    .tool-desc {
-      background: white;
-      padding: 18px;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
     footer {
       background: #222;
-      color: #bbb;
-      padding: 18px;
+      color: #aaa;
+      padding: 20px;
       text-align: center;
-      margin-top: 30px;
-      font-size: 14px;
+      margin-top: 40px;
     }
-    /* responsive small tweaks */
-    @media (max-width: 520px) {
-      header { padding: 12px; }
-      nav a { font-size: 13px; }
-      .hero, .tool-desc { padding: 14px; }
+    section.description {
+      background: white;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      line-height: 1.6;
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <h1>All Free Tools</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="#tools">Tools</a>
       <a href="#faq">FAQ</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#contact">Contact</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#contact">Contact Us</a>
     </nav>
   </header>
 
-  <div class="container">
-    <div class="hero">
-      <h2>Free Online Utilities — Fast, Simple and Secure</h2>
-      <p>
-        Welcome to All Free Tools. We offer a curated collection of practical, browser-based utilities — unit converters, calculators, text tools, image utilities and more.
-        No signup required, no downloads. Use every tool freely on desktop or mobile. This page lists each tool with a helpful explanation and how to use it.
-      </p>
-    </div>
-
-    <!-- ================= TOP (SEO) DESCRIPTIONS FOR ALL TOOLS (each ~500 words) ================= -->
-    <!-- Note: These long descriptions are intentionally placed near the top for SEO and for users to read before using the tool. -->
-
-    <!-- ------------------ 1) Unit Converter (500 words approx) ------------------ -->
-    <section id="unit-converter-desc" class="tool-desc">
-      <h2 class="section-title">Unit Converter — Convert Length, Weight, Temperature and More</h2>
-      <p>
-        A unit converter is an essential utility for everyday tasks, education and professional work. This Unit Converter lets you instantly transform values across different measurement systems — metric to imperial and back — without manual calculation or memorizing conversion factors.
-      </p>
-      <p>
-        Whether you need to convert meters to feet, kilometers to miles, kilograms to pounds, Celsius to Fahrenheit, liters to gallons or square meters to acres, this tool handles the math accurately and quickly. It is useful for a wide range of users: students solving homework problems, travelers comparing distances, cooks converting recipes between volume units, engineers checking quick measurements, and developers needing consistent unit conversion during development.
-      </p>
-      <h3>How the Unit Converter helps</h3>
-      <p>
-        The built-in conversion logic uses precise, commonly accepted conversion factors. You simply select the category (Length, Weight, Temperature, Volume, Area, Time, Speed, etc.), enter the value, choose the source unit and the target unit, then click Convert. The result appears instantly with a clear display and option to copy the value to your clipboard.
-      </p>
-      <h3>Usage steps</h3>
-      <ol>
-        <li>Open the Unit Converter tool by clicking "Use Tool".</li>
-        <li>Select the measurement category (for example, Length).</li>
-        <li>Type the number you want to convert into the input field.</li>
-        <li>Choose the 'From' and 'To' units from the dropdowns and press Convert.</li>
-        <li>Copy or use the result; repeat as needed for other values.</li>
-      </ol>
-      <p>
-        This tool is also ideal for batch checks: copy values from spreadsheets, paste them one-by-one, and convert quickly. The interface is mobile-friendly so you can convert values on a phone while traveling or shopping.
-      </p>
-      <h3>Tips & practical examples</h3>
-      <ul>
-        <li>Cooking: convert grams to ounces for recipes from other countries.</li>
-        <li>Travel: convert kilometers to miles for local distance comparisons.</li>
-        <li>Science: switch Celsius to Kelvin for temperature-based equations.</li>
-        <li>DIY/Home: convert square feet to square meters for room area estimation.</li>
-      </ul>
-      <p>
-        This Unit Converter is free, requires no signup, and is continuously updated to include the most common units. Bookmark the tool for quick access whenever you need precise conversions.
-      </p>
-    </section>
-
-    <!-- ------------------ 2) Age Calculator (500 words approx) ------------------ -->
-    <section id="age-calculator-desc" class="tool-desc">
-      <h2 class="section-title">Age Calculator — Exact Years, Months, Weeks, Days and More</h2>
-      <p>
-        The Age Calculator is a simple yet powerful tool that computes the precise age between two dates. It is designed to provide an accurate breakdown into years, months, weeks, days, hours, minutes and seconds — useful for personal records, legal forms, genealogy research, or to celebrate milestones.
-      </p>
-      <p>
-        Instead of doing date arithmetic by hand and risking incorrect results due to leap years and differing month lengths, this tool uses reliable date functions that account for those edge cases. Enter your birth date (or any start date) and an end date (default is today), then run the calculation to receive a detailed age summary.
-      </p>
-      <h3>Why this tool matters</h3>
-      <p>
-        People often need an exact age for formal processes such as school enrollment, visa paperwork, insurance claims, or medical records. For parents, knowing an infant’s precise age in days or weeks can be critical; for historians and genealogists, small date differences matter a lot. This tool converts dates into meaningful units so you have reliable data at hand.
-      </p>
-      <h3>How to use the Age Calculator</h3>
-      <ol>
-        <li>Open the Age Calculator page.</li>
-        <li>Select the start date (birth date or event date) and the end date (default to today unless you need a custom date).</li>
-        <li>Click Calculate and view the full breakdown: years, months, weeks, days, hours, minutes, and seconds.</li>
-        <li>Use the Copy button to copy the result for documents or messages.</li>
-      </ol>
-      <p>
-        The output displays human-friendly text and also a detailed numeric summary so you can paste values into spreadsheets or forms. It handles leap years and month length variations automatically.
-      </p>
-      <h3>Practical uses & tips</h3>
-      <ul>
-        <li>Healthcare records: accurate age in days is useful for pediatric records.</li>
-        <li>Legal and administrative forms that require date-based age verification.</li>
-        <li>Personal celebrations: find the exact age on a particular anniversary in years, months and days.</li>
-      </ul>
-      <p>
-        This Age Calculator is free and quick, a reliable utility for anyone needing precise age computations without manual errors.
-      </p>
-    </section>
-
-    <!-- ------------------ 3) Password Generator (500 words approx) ------------------ -->
-    <section id="password-generator-desc" class="tool-desc">
-      <h2 class="section-title">Password Generator — Create Strong & Secure Passwords</h2>
-      <p>
-        A strong password is the first defense for personal and business accounts. Our Password Generator creates random, secure passwords using configurable length and character types — uppercase, lowercase, numbers and symbols. It makes it easy to adopt good password practices without memorizing complex rules.
-      </p>
-      <p>
-        Weak passwords are the most common entry point for account compromises. This tool helps you generate high-entropy strings that are resistant to brute-force attacks and easy to copy into password managers. You can generate multiple passwords at once, test each for recommended strength, and copy the chosen password with a single click.
-      </p>
-      <h3>How it works and why it’s safe</h3>
-      <p>
-        The generator uses a secure randomization method (client-side JavaScript) to build passwords. Because generation happens locally in your browser, no password data leaves your device. For best practice, pair the generated password with a reputable password manager and enable two-factor authentication where possible.
-      </p>
-      <h3>Usage steps</h3>
-      <ol>
-        <li>Open the Password Generator tool.</li>
-        <li>Choose the password length (recommended 12+ characters for good security).</li>
-        <li>Select the character sets to include: lowercase, uppercase, numbers, symbols.</li>
-        <li>Click Generate and then Copy to clipboard. Save the password in a password manager.</li>
-      </ol>
-      <p>
-        The tool may also show a quick strength meter. Use it to generate different variants until you find a balance between memorability (if you must remember) and entropy (security).
-      </p>
-      <h3>Practical tips</h3>
-      <ul>
-        <li>Aim for 12–16 characters with mixed types for account security.</li>
-        <li>Never reuse passwords across critical accounts (email, banking, etc.).</li>
-        <li>Store generated passwords in a secure password manager rather than a text file.</li>
-      </ul>
-      <p>
-        This Password Generator is free, local, and fast — an essential tool to improve personal digital security immediately.
-      </p>
-    </section>
-
-    <!-- ------------------ 4) Stopwatch / Timer (500 words approx) ------------------ -->
-    <section id="stopwatch-timer-desc" class="tool-desc">
-      <h2 class="section-title">Stopwatch & Timer — Simple Time Tracking in Your Browser</h2>
-      <p>
-        Our Stopwatch and Timer tool brings reliable timekeeping directly to your browser. Whether you need a timer for exercise, study sessions, cooking, or a stopwatch for tracking event durations, this tool provides both functions in a clean, easy-to-use interface.
-      </p>
-      <p>
-        Unlike mobile apps where notifications or interruptions may interfere, a browser-based stopwatch and timer are accessible on any device with a web browser and require no installation. This utility is perfect for students following the Pomodoro technique, coaches tracking training intervals, and anyone needing precise elapsed time measurement.
-      </p>
-      <h3>Stopwatch features</h3>
-      <ul>
-        <li>Start, stop and reset controls.</li>
-        <li>Lap/split functionality to record intermediate times.</li>
-        <li>Clear and persistent display suitable for presentations or demonstrations.</li>
-      </ul>
-      <h3>Timer features</h3>
-      <ul>
-        <li>Set a countdown in hours, minutes and seconds.</li>
-        <li>Audible alert or visual notification when time finishes.</li>
-        <li>Repeat or stop options for interval use.</li>
-      </ul>
-      <h3>How to use</h3>
-      <ol>
-        <li>Open the Stopwatch/Timer page.</li>
-        <li>For stopwatch: press Start to begin, Lap to record splits, Stop to pause and Reset to clear.</li>
-        <li>For timer: set the desired duration and press Start; the tool will notify when the countdown ends.</li>
-      </ol>
-      <p>
-        The stopwatch displays precise time down to milliseconds and the timer handles all typical countdown needs. Use it for productivity sessions, workouts, timing presentations, or kitchen tasks.
-      </p>
-      <h3>Practical tips</h3>
-      <ul>
-        <li>Use the lap feature for interval training to easily compare rounds.</li>
-        <li>Keep the tab open and visible while using for best reliability.</li>
-        <li>Use in full-screen mode for presentations or live events.</li>
-      </ul>
-      <p>
-        This combined Stopwatch & Timer is a lightweight, free solution for accurate timing without installing extra apps. It's fast, reliable and available on any device.
-      </p>
-    </section>
-
-    <!-- ------------------ 5) Word Counter (500 words approx) ------------------ -->
-    <section id="word-counter-desc" class="tool-desc">
-      <h2 class="section-title">Word Counter — Count Words, Characters & Readability</h2>
-      <p>
-        The Word Counter tool helps you measure text length instantly — counting words, characters (with and without spaces), sentences, and estimated reading time. It is indispensable for writers, students, content creators and SEO specialists who need to meet length requirements or optimize for readability.
-      </p>
-      <p>
-        Whether you're drafting an essay, preparing a social post, writing a product description, or monitoring keyword density, this tool provides quick analytics to make content adjustments on the fly. It also helps editors check length limits for publications and marketers estimate how long a piece will take to read.
-      </p>
-      <h3>What the tool provides</h3>
-      <ul>
-        <li>Word count and character count (including and excluding spaces).</li>
-        <li>Sentence count and paragraph count.</li>
-        <li>Estimated reading time based on average reading speeds.</li>
-        <li>Optional keyword density checker to see how often target terms appear.</li>
-      </ul>
-      <h3>How to use</h3>
-      <ol>
-        <li>Open the Word Counter tool page.</li>
-        <li>Paste or type your text into the input area.</li>
-        <li>View instant counts and statistics below the input box.</li>
-        <li>Use the copy buttons to paste results into a document or editor.</li>
-      </ol>
-      <p>
-        The tool updates in real-time as you type and is responsive across devices. Use it to stay within word limits for applications, adhere to SEO-best practices for web pages, or estimate speaking time for presentations.
-      </p>
-      <h3>Practical uses & tips</h3>
-      <ul>
-        <li>Students: check essay word limits quickly.</li>
-        <li>Writers: monitor character limits for titles and meta descriptions.</li>
-        <li>Social media: craft posts that match platform length constraints.</li>
-        <li>SEO: maintain keyword density without overstuffing.</li>
-      </ul>
-      <p>
-        This Word Counter is free and fast, giving you accurate metrics and saving time during content creation and editing.
-      </p>
-    </section>
-
-    <!-- ------------------ 6) Image Compressor (500 words approx) ------------------ -->
-    <section id="image-compressor-desc" class="tool-desc">
-      <h2 class="section-title">Image Compressor — Reduce File Size Without Losing Quality</h2>
-      <p>
-        Image optimization is a critical part of web performance and user experience. Our Image Compressor helps you shrink image files — JPEG, PNG and WebP — while preserving visual quality. Smaller images mean faster page loads, lower bandwidth use, and better SEO ranking signals.
-      </p>
-      <p>
-        Whether you're preparing images for a blog, an online store, or personal sharing, the compressor simplifies the optimization process. Upload an image, choose quality or compression level, and download an optimized version — ready for web publishing.
-      </p>
-      <h3>Why compress images?</h3>
-      <ul>
-        <li>Faster website loading times and improved performance.</li>
-        <li>Reduced bandwidth consumption and storage costs.</li>
-        <li>Better user experience on mobile and low-speed connections.</li>
-        <li>Positive SEO impact because page speed is a ranking factor.</li>
-      </ul>
-      <h3>How to use</h3>
-      <ol>
-        <li>Open the Image Compressor tool.</li>
-        <li>Upload or drag & drop the image file (supported formats: JPG, PNG, WebP).</li>
-        <li>Choose compression level or use the automatic recommended setting.</li>
-        <li>Download the compressed image and use it on your site or share it.</li>
-      </ol>
-      <p>
-        The compressor performs client-side or server-side optimization (depending on the implementation). Client-side compression never sends your image to a server — it compresses in your browser for privacy. Server-side compression may provide additional optimization tools but will involve upload.
-      </p>
-      <h3>Tips</h3>
-      <ul>
-        <li>For photographs, a quality around 70–80% usually keeps details while significantly reducing size.</li>
-        <li>For images with text or sharp edges (screenshots), use lossless or lower compression values to avoid artifacts.</li>
-        <li>Always keep an original copy before compressing for future edits.</li>
-      </ul>
-      <p>
-        Use this Image Compressor to improve page speed, lower hosting costs, and deliver better experience to visitors — all with a few clicks.
-      </p>
-    </section>
-
-    <!-- Insert Ad script (kept exactly as provided) -->
-    <script type='text/javascript' src='//pl27782746.revenuecpmgate.com/54/c9/b3/54c9b30744eac0048dbf7f9e178b14a0.js'></script>
-
-    <!-- ------------------ 7) QR Code Generator (500 words approx) ------------------ -->
-    <section id="qr-code-generator-desc" class="tool-desc">
-      <h2 class="section-title">QR Code Generator — Create QR Codes from Text or URLs</h2>
-      <p>
-        QR codes are a universal way to share links, contact details, Wi-Fi access and short text reliably. Our QR Code Generator builds high-quality QR images instantly for any text or URL you enter. You can download the image and use it for print, flyers, menus, business cards, or digital displays.
-      </p>
-      <p>
-        This tool is optimized to generate QR codes with adjustable size and error correction level so that printed codes survive wear and scanning angle variations. It’s quick, works offline once the page is loaded, and gives you a downloadable PNG.
-      </p>
-      <h3>How to create a QR code</h3>
-      <ol>
-        <li>Open the QR Code Generator tool.</li>
-        <li>Enter the text or URL you want to encode (example: https://example.com).</li>
-        <li>Choose size and error correction if available (higher error correction makes the code more robust but slightly denser).</li>
-        <li>Click Generate, then scan the result with your phone camera or download the PNG file.</li>
-      </ol>
-      <p>
-        The QR generated can be tested immediately with a mobile phone camera. For business use, use high contrast between foreground and background colors and ensure adequate quiet zone (white margin) around the QR code for reliable scanning.
-      </p>
-      <h3>Practical uses</h3>
-      <ul>
-        <li>Share links to websites without typing long URLs.</li>
-        <li>Embed digital contact cards or Wi-Fi credentials for guests.</li>
-        <li>Use in print marketing — posters, brochures, signage.</li>
-      </ul>
-      <p>
-        Our QR Code Generator is free and produces standard-compliant images ready for online or print use.
-      </p>
-    </section>
-
-    <!-- ------------------ 8) Text Case Converter (500 words approx) ------------------ -->
-    <section id="text-case-converter-desc" class="tool-desc">
-      <h2 class="section-title">Text Case Converter — Uppercase, Lowercase, Title Case & More</h2>
-      <p>
-        The Text Case Converter helps you change the case of any text quickly — converting to uppercase, lowercase, title case, sentence case, and more. It’s essential for content cleaning, formatting copy for publication, preparing product listings, or fixing capitalization issues in long text blocks.
-      </p>
-      <p>
-        Content creators, editors and developers often need to reformat text to meet style guides or platform requirements. Manually editing capitalization across many lines is time-consuming and error-prone. This tool automates the process and provides accurate, predictable results.
-      </p>
-      <h3>Common conversions</h3>
-      <ul>
-        <li>UPPERCASE — all letters become uppercase for emphasis or headings.</li>
-        <li>lowercase — all letters become lowercase for specific style requirements.</li>
-        <li>Title Case — capitalizes the first letter of each major word.</li>
-        <li>Sentence Case — capitalize the first letter of each sentence while keeping the rest lowercase.</li>
-      </ul>
-      <h3>How to use</h3>
-      <ol>
-        <li>Open the Text Case Converter tool.</li>
-        <li>Paste or type your text into the input area.</li>
-        <li>Click the desired case button (UPPERCASE, lowercase, Title Case, Sentence case).</li>
-        <li>Use the Copy button to copy the converted text for use elsewhere.</li>
-      </ol>
-      <p>
-        This tool is also handy for normalizing large datasets, preparing CSV content for import, and cleaning up user-generated content before display. It works instantly in the browser and supports long text blocks.
-      </p>
-      <h3>Tips</h3>
-      <ul>
-        <li>Use Title Case for titles and headings, Sentence Case for body text or captions.</li>
-        <li>Check converted text if it contains acronyms (like USA) that should remain uppercase.</li>
-        <li>Use the Copy button to quickly paste results into editors or CMS fields.</li>
-      </ul>
-      <p>
-        The Text Case Converter is free, reliable and a great time-saver for writers and editors.
-      </p>
-    </section>
-
-    <!-- Second Ad script (kept exactly as provided) -->
-    <script async="async" data-cfasync="false" src="//pl27782764.revenuecpmgate.com/78a5e66843e56dfad23201e58f81b4f2/invoke.js"></script>
-    <div id="container-78a5e66843e56dfad23201e58f81b4f2"></div>
-
-    <!-- ================= MAIN TOOLS GRID (links to actual tool pages) ================= -->
-    <h2 id="tools" class="section-title">Our Tools</h2>
-
+  <div class="container" id="tools">
+    <h2>Our Free Online Tools</h2>
     <div class="grid">
+
       <div class="card">
         <h3>🧮 Unit Converter</h3>
-        <p>Convert length, weight, temperature, volume and more — instantly.</p>
+        <p>Quickly convert between different units of measurement.</p>
         <a href="unit-converter.html" class="btn">Use Tool</a>
       </div>
 
       <div class="card">
         <h3>🎂 Age Calculator</h3>
-        <p>Compute exact age in years, months, weeks, days and seconds.</p>
+        <p>Find your exact age in years, months, and seconds instantly.</p>
         <a href="age-calculator.html" class="btn">Use Tool</a>
       </div>
 
       <div class="card">
         <h3>🔑 Password Generator</h3>
-        <p>Create strong random passwords with a single click.</p>
+        <p>Create strong, secure, and random passwords easily.</p>
         <a href="password-generator.html" class="btn">Use Tool</a>
       </div>
 
       <div class="card">
         <h3>⏱ Stopwatch / Timer</h3>
-        <p>Start/stop stopwatch or set countdown timers for tasks.</p>
+        <p>Track time or set countdowns with precision online.</p>
         <a href="stopwatch-timer.html" class="btn">Use Tool</a>
       </div>
 
       <div class="card">
         <h3>📝 Word Counter</h3>
-        <p>Real-time word and character counts with reading time estimates.</p>
+        <p>Count words, characters, and paragraphs in your text.</p>
         <a href="word-counter.html" class="btn">Use Tool</a>
       </div>
 
       <div class="card">
         <h3>📦 Image Compressor</h3>
-        <p>Reduce image size for faster pages while maintaining quality.</p>
+        <p>Compress images without losing visible quality.</p>
         <a href="image-compressor.html" class="btn">Use Tool</a>
       </div>
 
       <div class="card">
         <h3>📲 QR Code Generator</h3>
-        <p>Generate QR codes for links or any text — download PNG.</p>
+        <p>Create free custom QR codes for links or text.</p>
         <a href="qr-code-generator.html" class="btn">Use Tool</a>
       </div>
 
       <div class="card">
         <h3>🔤 Text Case Converter</h3>
-        <p>Quickly change text case: uppercase, lowercase, title case and more.</p>
+        <p>Convert any text to uppercase, lowercase, or title case.</p>
         <a href="text-case-converter.html" class="btn">Use Tool</a>
       </div>
-    </div>
 
-    <!-- FAQ -->
-    <h2 id="faq" class="section-title">FAQ</h2>
-    <div class="tool-desc">
-      <p><strong>Q:</strong> Are these tools really free?<br><strong>A:</strong> Yes — all tools on this site are free to use and require no account or signup.</p>
-      <p><strong>Q:</strong> Do you store my data?<br><strong>A:</strong> Most tools operate entirely in the browser and do not send data to a server. If a tool temporarily uploads a file for processing (like some image compressors), it will state that clearly.</p>
-      <p><strong>Q:</strong> Are these safe to use on mobile?<br><strong>A:</strong> Yes — every tool is designed to be mobile-friendly and works on modern mobile browsers.</p>
-      <p><strong>Q:</strong> Can I request a new tool?<br><strong>A:</strong> Yes — use the Contact section to send suggestions. We add useful tools regularly.</p>
     </div>
+  </div>
 
-    <!-- Privacy -->
-    <h2 id="privacy" class="section-title">Privacy Policy Summary</h2>
-    <div class="tool-desc">
-      <p>
-        We respect your privacy. Tools that operate in the browser do not send your data to our servers. For tools that require upload, any file processing is temporary and used only to perform the requested action. We display ads to support the project; ad networks may collect browsing data according to their policies. Do not upload sensitive personal files unless you understand the tool’s processing method.
-      </p>
-    </div>
+  <section class="description">
+    <h2>About All Free Tools</h2>
+    <p>All Free Tools is your one-stop destination for powerful and easy-to-use online utilities. Our platform offers simple, secure, and fast tools for daily use. Whether you need to calculate your age, compress an image, generate strong passwords, or count words in your text, we’ve got you covered. Each tool is designed to work instantly in your browser, requiring no installation or sign-up.</p>
+    <p>We currently provide tools including a Unit Converter, Age Calculator, Password Generator, Stopwatch/Timer, Word Counter, Image Compressor, QR Code Generator, and Text Case Converter. Every tool is optimized for speed, accuracy, and privacy. You can use them for free on any device — desktop, tablet, or smartphone.</p>
+    <p>Our goal is to save your time and make your online experience smoother. From students to professionals, everyone can find something useful here. We continually add new tools based on user feedback and emerging needs. Bookmark All Free Tools today and make your daily tasks easier!</p>
+  </section>
 
-    <!-- Contact -->
-    <h2 id="contact" class="section-title">Contact</h2>
-    <div class="tool-desc">
-      <p>If you have questions, suggestions or want to report a bug, email us at: <strong>ueditz614@gmail.com</strong></p>
-    </div>
+  <div class="container" id="faq">
+    <h2>FAQ</h2>
+    <p><b>Q:</b> Are these tools free?<br><b>A:</b> Yes, all tools are completely free to use.</p>
+    <p><b>Q:</b> Do I need to install anything?<br><b>A:</b> No, all tools work online directly from your browser.</p>
+    <p><b>Q:</b> Can I use them on mobile?<br><b>A:</b> Yes, the website is fully mobile-friendly.</p>
+    <p><b>Q:</b> Will you add more tools?<br><b>A:</b> Yes, we update and add new tools regularly.</p>
+  </div>
 
-  </div> <!-- container -->
+<script type='text/javascript' src='//pl27782746.revenuecpmgate.com/54/c9/b3/54c9b30744eac0048dbf7f9e178b14a0.js'></script>
+
+  <div class="container" id="privacy">
+    <h2>Privacy Policy</h2>
+    <p>At All Free Tools, we value your privacy. None of our tools collect personal data or store your information. You can safely use all tools without worrying about data sharing or tracking. Advertisements may appear on some pages to help support site maintenance and new feature development.</p>
+  </div>
+
+  <div class="container" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have questions, feedback, or suggestions for new tools, feel free to contact us via email.</p>
+    <p><b>Email:</b> ueditz614@gmail.com</p>
+  </div>
+
+<script async="async" data-cfasync="false" src="//pl27782764.revenuecpmgate.com/78a5e66843e56dfad23201e58f81b4f2/invoke.js"></script>
+<div id="container-78a5e66843e56dfad23201e58f81b4f2"></div>
 
   <footer>
     <p>© 2025 All Free Tools. All rights reserved.</p>
   </footer>
-
-  <!-- Scripts (if any site-wide scripts are needed, add here) -->
-  <script>
-    // No heavy site-wide JS required — we keep pages fast.
-    // If you want, we can add analytics or simple UI helpers here later.
-  </script>
 </body>
 </html>
