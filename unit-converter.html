@@ -1,155 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unit Converter - All Free Tools</title>
-  <meta name="description" content="Use the free Unit Converter tool by All Free Tools to quickly convert length, weight, temperature, area, and more. Fast, accurate, and easy to use." />
-  <meta name="keywords" content="unit converter, online converter, metric to imperial, length converter, temperature converter, weight converter, all free tools" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f7fb;
+      background: #f4f7fa;
       margin: 0;
-      color: #333;
+      padding: 0;
     }
     header {
-      background: #007bff;
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: #0077cc;
+      color: white;
+      padding: 15px;
+      text-align: center;
     }
-    header h1 { font-size: 22px; margin: 0; }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
-    nav a:hover { text-decoration: underline; }
     .container {
       max-width: 800px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    h2 { text-align: center; margin-bottom: 20px; }
-    input, select {
+    h2 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .converter {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    label {
+      display: block;
+      margin: 8px 0 5px;
+    }
+    select, input {
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      font-size: 16px;
+      padding: 8px;
+      margin-bottom: 10px;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+    button {
+      background: #0077cc;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #005fa3;
+    }
     .result {
-      text-align: center;
-      font-size: 20px;
-      margin-top: 20px;
+      margin-top: 10px;
       font-weight: bold;
-      color: #007bff;
-    }
-    section.description {
-      margin-top: 40px;
-      background: #f9fafc;
-      padding: 20px;
-      border-radius: 10px;
-      line-height: 1.7;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    }
-    footer {
+      color: #333;
       text-align: center;
-      background: #222;
-      color: #aaa;
-      padding: 15px;
-      margin-top: 50px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>All Free Tools</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="age-calculator.html">Next Tool →</a>
-    </nav>
+    <h1>Multi Unit Converter</h1>
   </header>
-
   <div class="container">
-    <h2>Unit Converter</h2>
-    <label>Enter Value:</label>
-    <input type="number" id="inputValue" placeholder="Enter value" />
-    
-    <label>From Unit:</label>
-    <select id="fromUnit">
-      <option value="meter">Meter</option>
-      <option value="kilometer">Kilometer</option>
-      <option value="centimeter">Centimeter</option>
-      <option value="inch">Inch</option>
-      <option value="foot">Foot</option>
-      <option value="yard">Yard</option>
-    </select>
-    
-    <label>To Unit:</label>
-    <select id="toUnit">
-      <option value="meter">Meter</option>
-      <option value="kilometer">Kilometer</option>
-      <option value="centimeter">Centimeter</option>
-      <option value="inch">Inch</option>
-      <option value="foot">Foot</option>
-      <option value="yard">Yard</option>
-    </select>
 
-    <div class="result" id="result">Result: —</div>
+    <!-- Length Converter -->
+    <h2>Length Converter</h2>
+    <div class="converter">
+      <label>Value:</label>
+      <input type="number" id="length-value" placeholder="Enter value">
+
+      <label>From:</label>
+      <select id="length-from">
+        <option value="meter">Meter</option>
+        <option value="kilometer">Kilometer</option>
+        <option value="centimeter">Centimeter</option>
+      </select>
+
+      <label>To:</label>
+      <select id="length-to">
+        <option value="mile">Mile</option>
+        <option value="kilometer">Kilometer</option>
+        <option value="centimeter">Centimeter</option>
+      </select>
+
+      <button onclick="convertLength()">Convert</button>
+      <div class="result" id="length-result"></div>
+    </div>
+
+    <!-- Weight Converter -->
+    <h2>Weight Converter</h2>
+    <div class="converter">
+      <label>Value:</label>
+      <input type="number" id="weight-value" placeholder="Enter value">
+
+      <label>From:</label>
+      <select id="weight-from">
+        <option value="kilogram">Kilogram</option>
+        <option value="gram">Gram</option>
+        <option value="pound">Pound</option>
+      </select>
+
+      <label>To:</label>
+      <select id="weight-to">
+        <option value="ounce">Ounce</option>
+        <option value="gram">Gram</option>
+        <option value="pound">Pound</option>
+      </select>
+
+      <button onclick="convertWeight()">Convert</button>
+      <div class="result" id="weight-result"></div>
+    </div>
+
+    <!-- Temperature Converter -->
+    <h2>Temperature Converter</h2>
+    <div class="converter">
+      <label>Value:</label>
+      <input type="number" id="temp-value" placeholder="Enter value">
+
+      <label>From:</label>
+      <select id="temp-from">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+      </select>
+
+      <label>To:</label>
+      <select id="temp-to">
+        <option value="kelvin">Kelvin</option>
+        <option value="fahrenheit">Fahrenheit</option>
+      </select>
+
+      <button onclick="convertTemp()">Convert</button>
+      <div class="result" id="temp-result"></div>
+    </div>
+
+    <!-- Area Converter -->
+    <h2>Area Converter</h2>
+    <div class="converter">
+      <label>Value:</label>
+      <input type="number" id="area-value" placeholder="Enter value">
+
+      <label>From:</label>
+      <select id="area-from">
+        <option value="sqm">Square Meter</option>
+        <option value="sqkm">Square Kilometer</option>
+        <option value="sqcm">Square Centimeter</option>
+      </select>
+
+      <label>To:</label>
+      <select id="area-to">
+        <option value="hectare">Hectare</option>
+        <option value="sqkm">Square Kilometer</option>
+        <option value="sqcm">Square Centimeter</option>
+      </select>
+
+      <button onclick="convertArea()">Convert</button>
+      <div class="result" id="area-result"></div>
+    </div>
+
+    <!-- Volume Converter -->
+    <h2>Volume Converter</h2>
+    <div class="converter">
+      <label>Value:</label>
+      <input type="number" id="volume-value" placeholder="Enter value">
+
+      <label>From:</label>
+      <select id="volume-from">
+        <option value="liter">Liter</option>
+        <option value="milliliter">Milliliter</option>
+        <option value="gallon">Gallon</option>
+      </select>
+
+      <label>To:</label>
+      <select id="volume-to">
+        <option value="cubicmeter">Cubic Meter</option>
+        <option value="milliliter">Milliliter</option>
+        <option value="gallon">Gallon</option>
+      </select>
+
+      <button onclick="convertVolume()">Convert</button>
+      <div class="result" id="volume-result"></div>
+    </div>
+
   </div>
 
-  <section class="description">
-    <h2>About Unit Converter Tool</h2>
-    <p>
-      The Unit Converter by All Free Tools helps you easily convert measurements across various systems with precision and speed. Whether you’re a student working on assignments, a professional dealing with technical units, or simply curious about everyday conversions, this tool is built to make the process effortless. You can quickly convert between meters, kilometers, inches, feet, yards, and many other common units without needing to download anything.
-    </p>
-    <p>
-      Our Unit Converter works directly in your browser and provides instant results as you type. It supports both metric and imperial systems, making it ideal for global users. From converting distances to adjusting dimensions for design or construction projects, this free tool is accurate, reliable, and completely ad-free. 
-    </p>
-    <p>
-      We focus on simplicity and user experience, ensuring that everyone can use the converter without confusion. Whether you’re converting small measurements like centimeters to inches or large ones like kilometers to miles, the results appear immediately. Bookmark this tool and make your calculations faster and smarter anytime, anywhere.
-    </p>
-  </section>
-
-  <footer>
-    <p>© 2025 All Free Tools. All rights reserved.</p>
-  </footer>
-
   <script>
-    const factors = {
-      meter: 1,
-      kilometer: 1000,
-      centimeter: 0.01,
-      inch: 0.0254,
-      foot: 0.3048,
-      yard: 0.9144
-    };
-
-    function convert() {
-      const value = parseFloat(document.getElementById('inputValue').value);
-      const from = document.getElementById('fromUnit').value;
-      const to = document.getElementById('toUnit').value;
-
-      if (!isNaN(value)) {
-        const result = (value * factors[from]) / factors[to];
-        document.getElementById('result').textContent = Result: ${result.toFixed(4)} ${to};
-      } else {
-        document.getElementById('result').textContent = "Result: —";
-      }
+    function convertLength() {
+      let value = parseFloat(document.getElementById("length-value").value);
+      let from = document.getElementById("length-from").value;
+      let to = document.getElementById("length-to").value;
+      if (isNaN(value)) return document.getElementById("length-result").innerText = "Enter value";
+      let meters = from === "meter" ? value :
+                   from === "kilometer" ? value * 1000 :
+                   from === "centimeter" ? value / 100 : 0;
+      let result = to === "mile" ? meters / 1609.34 :
+                   to === "kilometer" ? meters / 1000 :
+                   to === "centimeter" ? meters * 100 : 0;
+      document.getElementById("length-result").innerText = value + " " + from + " = " + result.toFixed(4) + " " + to;
     }
 
-    document.getElementById('inputValue').addEventListener('input', convert);
-    document.getElementById('fromUnit').addEventListener('change', convert);
-    document.getElementById('toUnit').addEventListener('change', convert);
+    function convertWeight() {
+      let value = parseFloat(document.getElementById("weight-value").value);
+      let from = document.getElementById("weight-from").value;
+      let to = document.getElementById("weight-to").value;
+      if (isNaN(value)) return document.getElementById("weight-result").innerText = "Enter value";
+      let kg = from === "kilogram" ? value :
+               from === "gram" ? value / 1000 :
+               from === "pound" ? value * 0.453592 : 0;
+      let result = to === "ounce" ? kg * 35.274 :
+                   to === "gram" ? kg * 1000 :
+                   to === "pound" ? kg / 0.453592 : 0;
+      document.getElementById("weight-result").innerText = value + " " + from + " = " + result.toFixed(4) + " " + to;
+    }
+
+    function convertTemp() {
+      let value = parseFloat(document.getElementById("temp-value").value);
+      let from = document.getElementById("temp-from").value;
+      let to = document.getElementById("temp-to").value;
+      if (isNaN(value)) return document.getElementById("temp-result").innerText = "Enter value";
+      let celsius = from === "celsius" ? value :
+                    from === "fahrenheit" ? (value - 32) * 5/9 : 0;
+      let result = to === "kelvin" ? celsius + 273.15 :
+                   to === "fahrenheit" ? (celsius * 9/5) + 32 : 0;
+      document.getElementById("temp-result").innerText = value + " " + from + " = " + result.toFixed(2) + " " + to;
+    }
+
+    function convertArea() {
+      let value = parseFloat(document.getElementById("area-value").value);
+      let from = document.getElementById("area-from").value;
+      let to = document.getElementById("area-to").value;
+      if (isNaN(value)) return document.getElementById("area-result").innerText = "Enter value";
+      let sqm = from === "sqm" ? value :
+                from === "sqkm" ? value * 1e6 :
+                from === "sqcm" ? value / 10000 : 0;
+      let result = to === "hectare" ? sqm / 10000 :
+                   to === "sqkm" ? sqm / 1e6 :
+                   to === "sqcm" ? sqm * 10000 : 0;
+      document.getElementById("area-result").innerText = value + " " + from + " = " + result.toFixed(4) + " " + to;
+    }
+
+    function convertVolume() {
+      let value = parseFloat(document.getElementById("volume-value").value);
+      let from = document.getElementById("volume-from").value;
+      let to = document.getElementById("volume-to").value;
+      if (isNaN(value)) return document.getElementById("volume-result").innerText = "Enter value";
+      let liter = from === "liter" ? value :
+                  from === "milliliter" ? value / 1000 :
+                  from === "gallon" ? value * 3.78541 : 0;
+      let result = to === "cubicmeter" ? liter / 1000 :
+                   to === "milliliter" ? liter * 1000 :
+                   to === "gallon" ? liter / 3.78541 : 0;
+      document.getElementById("volume-result").innerText = value + " " + from + " = " + result.toFixed(4) + " " + to;
+    }
   </script>
 </body>
 </html>
