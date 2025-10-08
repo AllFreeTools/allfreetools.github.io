@@ -71,30 +71,25 @@
   <header>
     <h1>Multi Unit Converter</h1>
   </header>
+
   <div class="container">
 
     <!-- Length Converter -->
     <h2>Length Converter</h2>
     <div class="converter">
-      <label>Value:</label>
       <input type="number" id="length-value" placeholder="Enter value">
-
-      <label>From:</label>
       <select id="length-from">
         <option value="meter">Meter</option>
         <option value="kilometer">Kilometer</option>
         <option value="centimeter">Centimeter</option>
         <option value="mile">Mile</option>
       </select>
-
-      <label>To:</label>
       <select id="length-to">
         <option value="meter">Meter</option>
         <option value="kilometer">Kilometer</option>
         <option value="centimeter">Centimeter</option>
         <option value="mile">Mile</option>
       </select>
-
       <button onclick="convertLength()">Convert</button>
       <div class="result" id="length-result"></div>
     </div>
@@ -102,25 +97,19 @@
     <!-- Weight Converter -->
     <h2>Weight Converter</h2>
     <div class="converter">
-      <label>Value:</label>
       <input type="number" id="weight-value" placeholder="Enter value">
-
-      <label>From:</label>
       <select id="weight-from">
         <option value="kilogram">Kilogram</option>
         <option value="gram">Gram</option>
         <option value="pound">Pound</option>
         <option value="ounce">Ounce</option>
       </select>
-
-      <label>To:</label>
       <select id="weight-to">
         <option value="kilogram">Kilogram</option>
         <option value="gram">Gram</option>
         <option value="pound">Pound</option>
         <option value="ounce">Ounce</option>
       </select>
-
       <button onclick="convertWeight()">Convert</button>
       <div class="result" id="weight-result"></div>
     </div>
@@ -128,23 +117,17 @@
     <!-- Temperature Converter -->
     <h2>Temperature Converter</h2>
     <div class="converter">
-      <label>Value:</label>
       <input type="number" id="temp-value" placeholder="Enter value">
-
-      <label>From:</label>
       <select id="temp-from">
         <option value="celsius">Celsius</option>
         <option value="fahrenheit">Fahrenheit</option>
         <option value="kelvin">Kelvin</option>
       </select>
-
-      <label>To:</label>
       <select id="temp-to">
         <option value="celsius">Celsius</option>
         <option value="fahrenheit">Fahrenheit</option>
         <option value="kelvin">Kelvin</option>
       </select>
-
       <button onclick="convertTemp()">Convert</button>
       <div class="result" id="temp-result"></div>
     </div>
@@ -152,25 +135,19 @@
     <!-- Area Converter -->
     <h2>Area Converter</h2>
     <div class="converter">
-      <label>Value:</label>
       <input type="number" id="area-value" placeholder="Enter value">
-
-      <label>From:</label>
       <select id="area-from">
         <option value="sqm">Square Meter</option>
         <option value="sqkm">Square Kilometer</option>
         <option value="sqcm">Square Centimeter</option>
         <option value="hectare">Hectare</option>
       </select>
-
-      <label>To:</label>
       <select id="area-to">
         <option value="sqm">Square Meter</option>
         <option value="sqkm">Square Kilometer</option>
         <option value="sqcm">Square Centimeter</option>
         <option value="hectare">Hectare</option>
       </select>
-
       <button onclick="convertArea()">Convert</button>
       <div class="result" id="area-result"></div>
     </div>
@@ -178,25 +155,19 @@
     <!-- Volume Converter -->
     <h2>Volume Converter</h2>
     <div class="converter">
-      <label>Value:</label>
       <input type="number" id="volume-value" placeholder="Enter value">
-
-      <label>From:</label>
       <select id="volume-from">
         <option value="liter">Liter</option>
         <option value="milliliter">Milliliter</option>
         <option value="gallon">Gallon</option>
         <option value="cubicmeter">Cubic Meter</option>
       </select>
-
-      <label>To:</label>
       <select id="volume-to">
         <option value="liter">Liter</option>
         <option value="milliliter">Milliliter</option>
         <option value="gallon">Gallon</option>
         <option value="cubicmeter">Cubic Meter</option>
       </select>
-
       <button onclick="convertVolume()">Convert</button>
       <div class="result" id="volume-result"></div>
     </div>
@@ -204,83 +175,70 @@
   </div>
 
   <script>
+    // Length
     function convertLength() {
-      let value = parseFloat(document.getElementById("length-value").value);
-      let from = document.getElementById("length-from").value;
-      let to = document.getElementById("length-to").value;
-      if (isNaN(value)) return document.getElementById("length-result").innerText = "Enter value";
-      if (from === to) return document.getElementById("length-result").innerText = ${value} ${from} = ${value} ${to};
-      const meters = {
-        meter: 1,
-        kilometer: 1000,
-        centimeter: 0.01,
-        mile: 1609.34
-      };
-      let result = value * meters[from] / meters[to];
-      document.getElementById("length-result").innerText = ${value} ${from} = ${result.toFixed(4)} ${to};
+      const value = parseFloat(document.getElementById("length-value").value);
+      const from = document.getElementById("length-from").value;
+      const to = document.getElementById("length-to").value;
+      if (isNaN(value)) return showResult("length-result", "Enter value");
+      const units = { meter: 1, kilometer: 1000, centimeter: 0.01, mile: 1609.34 };
+      const result = value * units[from] / units[to];
+      showResult("length-result", ${value} ${from} = ${result.toFixed(4)} ${to});
     }
 
+    // Weight
     function convertWeight() {
-      let value = parseFloat(document.getElementById("weight-value").value);
-      let from = document.getElementById("weight-from").value;
-      let to = document.getElementById("weight-to").value;
-      if (isNaN(value)) return document.getElementById("weight-result").innerText = "Enter value";
-      if (from === to) return document.getElementById("weight-result").innerText = ${value} ${from} = ${value} ${to};
-      const kg = {
-        kilogram: 1,
-        gram: 0.001,
-        pound: 0.453592,
-        ounce: 0.0283495
-      };
-      let result = value * kg[from] / kg[to];
-      document.getElementById("weight-result").innerText = ${value} ${from} = ${result.toFixed(4)} ${to};
+      const value = parseFloat(document.getElementById("weight-value").value);
+      const from = document.getElementById("weight-from").value;
+      const to = document.getElementById("weight-to").value;
+      if (isNaN(value)) return showResult("weight-result", "Enter value");
+      const units = { kilogram: 1, gram: 0.001, pound: 0.453592, ounce: 0.0283495 };
+      const result = value * units[from] / units[to];
+      showResult("weight-result", ${value} ${from} = ${result.toFixed(4)} ${to});
     }
 
+    // Temperature
     function convertTemp() {
-      let value = parseFloat(document.getElementById("temp-value").value);
-      let from = document.getElementById("temp-from").value;
-      let to = document.getElementById("temp-to").value;
-      if (isNaN(value)) return document.getElementById("temp-result").innerText = "Enter value";
-      if (from === to) return document.getElementById("temp-result").innerText = ${value} ${from} = ${value} ${to};
-      let celsius = from === "celsius" ? value :
-                    from === "fahrenheit" ? (value - 32) * 5/9 :
-                    from === "kelvin" ? value - 273.15 : 0;
-      let result = to === "celsius" ? celsius :
-                   to === "fahrenheit" ? (celsius * 9/5) + 32 :
-                   to === "kelvin" ? celsius + 273.15 : 0;
-      document.getElementById("temp-result").innerText = ${value} ${from} = ${result.toFixed(2)} ${to};
+      const value = parseFloat(document.getElementById("temp-value").value);
+      const from = document.getElementById("temp-from").value;
+      const to = document.getElementById("temp-to").value;
+      if (isNaN(value)) return showResult("temp-result", "Enter value");
+      let c;
+      if (from === "celsius") c = value;
+      else if (from === "fahrenheit") c = (value - 32) * 5/9;
+      else c = value - 273.15;
+      let result;
+      if (to === "celsius") result = c;
+      else if (to === "fahrenheit") result = (c * 9/5) + 32;
+      else result = c + 273.15;
+      showResult("temp-result", ${value} ${from} = ${result.toFixed(2)} ${to});
     }
 
+    // Area
     function convertArea() {
-      let value = parseFloat(document.getElementById("area-value").value);
-      let from = document.getElementById("area-from").value;
-      let to = document.getElementById("area-to").value;
-      if (isNaN(value)) return document.getElementById("area-result").innerText = "Enter value";
-      if (from === to) return document.getElementById("area-result").innerText = ${value} ${from} = ${value} ${to};
-      const sqm = {
-        sqm: 1,
-        sqkm: 1e6,
-        sqcm: 0.0001,
-        hectare: 10000
-      };
-      let result = value * sqm[from] / sqm[to];
-      document.getElementById("area-result").innerText = ${value} ${from} = ${result.toFixed(4)} ${to};
+      const value = parseFloat(document.getElementById("area-value").value);
+      const from = document.getElementById("area-from").value;
+      const to = document.getElementById("area-to").value;
+      if (isNaN(value)) return showResult("area-result", "Enter value");
+      const units = { sqm: 1, sqkm: 1e6, sqcm: 0.0001, hectare: 10000 };
+      const result = value * units[from] / units[to];
+      showResult("area-result", ${value} ${from} = ${result.toFixed(4)} ${to});
     }
 
+    // Volume
     function convertVolume() {
-      let value = parseFloat(document.getElementById("volume-value").value);
-      let from = document.getElementById("volume-from").value;
-      let to = document.getElementById("volume-to").value;
-      if (isNaN(value)) return document.getElementById("volume-result").innerText = "Enter value";
-      if (from === to) return document.getElementById("volume-result").innerText = ${value} ${from} = ${value} ${to};
-      const liter = {
-        liter: 1,
-        milliliter: 0.001,
-        gallon: 3.78541,
-        cubicmeter: 1000
-      };
-      let result = value * liter[from] / liter[to];
-      document.getElementById("volume-result").innerText = ${value} ${from} = ${result.toFixed(4)} ${to};
+      const value = parseFloat(document.getElementById("volume-value").value);
+      const from = document.getElementById("volume-from").value;
+      const to = document.getElementById("volume-to").value;
+      if (isNaN(value)) return showResult("volume-result", "Enter value");
+      const units = { liter: 1, milliliter: 0.001, gallon: 3.78541, cubicmeter: 1000 };
+      const result = value * units[from] / units[to];
+      showResult("volume-result", ${value} ${from} = ${result.toFixed(4)} ${to});
+    }
+
+    // Helper
+    function showResult(id, text) {
+      document.getElementById(id).innerText = text;
     }
   </script>
 </body>
