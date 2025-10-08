@@ -7,7 +7,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f7fa;
+      background: #2c2f38;
+      color: white;
       margin: 0;
       padding: 0;
     }
@@ -20,21 +21,21 @@
     .container {
       max-width: 800px;
       margin: 30px auto;
-      background: white;
+      background: #3b4249;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
     h2 {
-      color: #0077cc;
+      color: #33aaff;
       text-align: center;
     }
     .converter {
       margin: 20px 0;
       padding: 15px;
-      border: 1px solid #ddd;
+      border: 1px solid #555;
       border-radius: 8px;
-      background: #fafafa;
+      background: #444b52;
     }
     label {
       display: block;
@@ -45,7 +46,12 @@
       padding: 8px;
       margin-bottom: 10px;
       border-radius: 5px;
-      border: 1px solid #ccc;
+      border: 1px solid #666;
+      background: #555c64;
+      color: white;
+    }
+    input::placeholder {
+      color: #ccc;
     }
     button {
       background: #0077cc;
@@ -55,6 +61,7 @@
       border-radius: 5px;
       cursor: pointer;
       width: 100%;
+      font-weight: bold;
     }
     button:hover {
       background: #005fa3;
@@ -62,7 +69,7 @@
     .result {
       margin-top: 10px;
       font-weight: bold;
-      color: #333;
+      color: #f5f5f5;
       text-align: center;
     }
   </style>
@@ -71,6 +78,7 @@
   <header>
     <h1>Multi Unit Converter</h1>
   </header>
+
   <div class="container">
 
     <!-- Length Converter -->
@@ -205,7 +213,7 @@
       let result = to === "mile" ? meters / 1609.34 :
                    to === "kilometer" ? meters / 1000 :
                    to === "centimeter" ? meters * 100 : 0;
-      document.getElementById("length-result").innerText = value + " " + from + " = " + result.toFixed(4) + " " + to;
+      document.getElementById("length-result").innerText = ${value} ${from} = ${result.toFixed(4)} ${to};
     }
 
     function convertWeight() {
@@ -219,7 +227,7 @@
       let result = to === "ounce" ? kg * 35.274 :
                    to === "gram" ? kg * 1000 :
                    to === "pound" ? kg / 0.453592 : 0;
-      document.getElementById("weight-result").innerText = value + " " + from + " = " + result.toFixed(4) + " " + to;
+      document.getElementById("weight-result").innerText = ${value} ${from} = ${result.toFixed(4)} ${to};
     }
 
     function convertTemp() {
@@ -231,7 +239,7 @@
                     from === "fahrenheit" ? (value - 32) * 5/9 : 0;
       let result = to === "kelvin" ? celsius + 273.15 :
                    to === "fahrenheit" ? (celsius * 9/5) + 32 : 0;
-      document.getElementById("temp-result").innerText = value + " " + from + " = " + result.toFixed(2) + " " + to;
+      document.getElementById("temp-result").innerText = ${value} ${from} = ${result.toFixed(2)} ${to};
     }
 
     function convertArea() {
@@ -245,7 +253,7 @@
       let result = to === "hectare" ? sqm / 10000 :
                    to === "sqkm" ? sqm / 1e6 :
                    to === "sqcm" ? sqm * 10000 : 0;
-      document.getElementById("area-result").innerText = value + " " + from + " = " + result.toFixed(4) + " " + to;
+      document.getElementById("area-result").innerText = ${value} ${from} = ${result.toFixed(4)} ${to};
     }
 
     function convertVolume() {
@@ -259,7 +267,7 @@
       let result = to === "cubicmeter" ? liter / 1000 :
                    to === "milliliter" ? liter * 1000 :
                    to === "gallon" ? liter / 3.78541 : 0;
-      document.getElementById("volume-result").innerText = value + " " + from + " = " + result.toFixed(4) + " " + to;
+      document.getElementById("volume-result").innerText = ${value} ${from} = ${result.toFixed(4)} ${to};
     }
   </script>
 </body>
